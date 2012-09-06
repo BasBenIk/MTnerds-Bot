@@ -21,10 +21,10 @@ days = [
   ]
 
 module.exports = (robot) ->
-  robot.respond /terugkomdag, (msg) ->
+  robot.respond /terugkomdag/i, (msg) ->
     text = msg.message.text
       msg.send days[1]
 
-  robot.respond /terugkomdagen, (msg) ->
+  robot.respond /terugkomdagen/i, (msg) ->
   	text = msg.message.text
   	  msg.send days.join('\n')
