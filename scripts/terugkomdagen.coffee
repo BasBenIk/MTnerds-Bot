@@ -2,15 +2,15 @@
 #   Show the days that MT students need to go back to school
 #
 # Commands:
-#   hubot wanneer is de volgende terugkomdag? - get the first upcoming date
-#
+#   hubot wanneer moeten we terug naar school? - get the first upcoming date
+#   hubot wat zijn de terugkomdagen? - get the first upcoming date
 #
 # Author:
 # 	Christian Vermeulen
 # 		info@christianvermeulen.net
 
 days = [
-  {date: "09/20/2012", text: "Donderdag 20 September"},
+  {date: "09/06/2012", text: "Donderdag 20 September"},
   {date: "10/11/2012", text: "Donderdag 11 Oktober"},
   {date: "11/15/2012", text: "Donderdag 15 November"},
   {date: "12/13/2012", text: "Donderdag 13 December"},
@@ -18,7 +18,7 @@ days = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /wanneer is de volgende terugkomdag?/i, (msg) ->
+  robot.respond /wanneer moeten we terug naar school?/i, (msg) ->
     text = msg.message.text
     now = new Date
     now = now.getTime()
@@ -29,3 +29,12 @@ module.exports = (robot) ->
       if moment > now
         msg.send day.text
         break
+
+  robot.respond /wat zijn de terugkomdagen?/i, (msg) ->
+    text = msg.message.text
+
+    reply = ""
+    for day in days
+      reply = reply+day.text+"\n"
+
+    msg.send reply
