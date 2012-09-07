@@ -33,4 +33,4 @@ module.exports = (robot) ->
 			msg.send "Silly you! Vraag het even aan een ECHTE admin."
 
 	robot.respond /admins/i, (msg) ->
-		msg.send robot.brain.admins.join("\n")
+		msg.send robot.brain.data.admins.join("\n")
