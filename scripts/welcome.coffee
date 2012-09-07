@@ -20,9 +20,12 @@ module.exports = (robot) ->
     robot.brain.data.welcomeMsg ||= "Welkom bij het MT Stage kanaal!"
 
   robot.respond /welcome (.*)/i, (msg) ->
-    robot.brain.data.welcomeMsg = msg.match[1]
-    robot.brain.data.welcomeUsers = []
-    msg.send "I will notify everybody of this new message!"
+    if msg.message.user.name in robot.brain.data.admins
+      robot.brain.data.welcomeMsg = msg.match[1]
+      robot.brain.data.welcomeUsers = []
+      msg.send "I will notify everybody of this new message!"
+    else
+      msg.send "You are so naughty! Ask one of the admins to change this."
 
   robot.hear /./i, (msg) ->
     welcomeUsers = robot.brain.data.welcomeUsers
