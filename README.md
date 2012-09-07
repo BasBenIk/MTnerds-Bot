@@ -15,11 +15,6 @@ We run this from [Heroku][heroku].
 Please note that this Readme is still under heavy editing!
 For question, contact [BasBenIk][bas] or [ChristianVermeulen][chris]
 
-## Wake up Hubot
-Since we use the free heroku environment, the bot will go idle after some time and leave the channel.
-If this happens, you [can wake him up][wakeup] by going to the web location.
-He will automatically join the channel again.
-
 ## User scripts
 
 All the functionality of Hubot is found in the `./scripts` folder.
