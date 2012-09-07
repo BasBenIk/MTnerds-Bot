@@ -18,7 +18,7 @@ For question, contact [BasBenIk][bas] or [ChristianVermeulen][chris]
 
 All the functionality of Hubot is found in the `./scripts` folder.
 
-If you want to add functionality, all you have to do is create a new script in the './scripts' folder and you are good to go.
+If you want to add functionality, all you have to do is create a new script in the `./scripts` folder and you are good to go.
 Check the other script to get started on how it works.
 
 If you have finished your script and want to add it to our Hubot, please make a pull request to the repo of [BasBenIk][basrepo].
@@ -34,6 +34,6 @@ How to install [Node.js][node] (npm comes with node.js).
 How to install [Redis][redis].
 
 Next, go to the root of your hubot repo and type:
-'bin/hubot'
+`bin/hubot`
 
 Hubot should now be running in the terminal.
