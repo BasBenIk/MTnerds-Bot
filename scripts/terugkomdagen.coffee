@@ -28,3 +28,4 @@ module.exports = (robot) ->
   robot.respond /terugkomdagen/i, (msg) ->
   	text = msg.message.text
   	msg.send days.join('\n')
+
