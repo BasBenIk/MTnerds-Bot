@@ -4,6 +4,7 @@
 [chris]: https://github.com/christianvermeulen/
 [node]: http://nodejs.org/
 [redis]: http://redis.io/topics/quickstart
+[wakeup]: http://hubotmtnerds.herokuapp.com/
 # MTnerdsbot
 
 ## Thanks for picking my brain
@@ -13,6 +14,11 @@ We run this from [Heroku][heroku].
 
 Please note that this Readme is still under heavy editing!
 For question, contact [BasBenIk][bas] or [ChristianVermeulen][chris]
+
+## Wake up Hubot
+Since we use the free heroku environment, the bot will go idle after some time and leave the channel.
+If this happens, you [can wake him up][wakeup] by going to the web location.
+He will automatically join the channel again.
 
 ## User scripts
 
