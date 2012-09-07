@@ -2,29 +2,39 @@
 #   Show the days that MT students need to go back to school
 #
 # Commands:
-#   hubot volgende terugkomdag - get the first upcoming date
-#   hubot terugkomdagen - get all dates
-#
-# Notes:
-#   TODO: Make the bot pick the right one by date.
+#   hubot wanneer moeten we terug naar school? - get the first upcoming date
+#   hubot wat zijn de terugkomdagen? - get the first upcoming date
 #
 # Author:
 # 	Christian Vermeulen
 # 		info@christianvermeulen.net
 
 days = [
-  "Donderdag 20 September",
-  "Donderdag 11 Oktober",
-  "Donderdag 15 November",
-  "Donderdag 13 December",
-  "Donderdag 31 Januari"
-  ]
+  {date: "09/20/2012", text: "Donderdag 20 September"},
+  {date: "10/11/2012", text: "Donderdag 11 Oktober"},
+  {date: "11/15/2012", text: "Donderdag 15 November"},
+  {date: "12/13/2012", text: "Donderdag 13 December"},
+  {date: "01/31/2013", text: "Donderdag 31 Januari"},
+]
 
 module.exports = (robot) ->
-  robot.respond /terugkomdag/i, (msg) ->
+  robot.respond /wanneer moeten we terug naar school?/i, (msg) ->
     text = msg.message.text
-    msg.send days[1]
+    now = new Date
+    now = now.getTime()
 
-  robot.respond /terugkomdagen/i, (msg) ->
-  	text = msg.message.text
-  	msg.send days.join('\n')
+    for day in days
+      moment = new Date
+      moment = moment.setTime(Date.parse(day.date))
+      if moment > now
+        msg.send day.text
+        break
+
+  robot.respond /wat zijn de terugkomdagen?/i, (msg) ->
+    text = msg.message.text
+
+    reply = ""
+    for day in days
+      reply = reply+day.text+"\n"
+
+    msg.send reply

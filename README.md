@@ -1,48 +1,45 @@
+[heroku]: http://www.heroku.com
+[bas]: https://github.com/basbenik/
+[basrepo]: https://github.com/BasBenIk/MTnerds-Bot
+[chris]: https://github.com/christianvermeulen/
+[node]: http://nodejs.org/
+[redis]: http://redis.io/topics/quickstart
+[wakeup]: http://hubotmtnerds.herokuapp.com/
 # MTnerdsbot
 
+## Thanks for picking my brain
 
-## Deze readme is nog niet af en wordt nog aangepast!
+This is our own version of the Github Campfire bot, he's awesome!
+We run this from [Heroku][heroku].
 
-Dit is een versie van GitHub's Campfire bot, hubot. Hij is erg vet!.
+Please note that this Readme is still under heavy editing!
+For question, contact [BasBenIk][bas] or [ChristianVermeulen][chris]
 
-Deze versie is speciaal gemaakt om te draaien op [Heroku][heroku].
+## Wake up Hubot
+Since we use the free heroku environment, the bot will go idle after some time and leave the channel.
+If this happens, you [can wake him up][wakeup] by going to the web location.
+He will automatically join the channel again.
 
-[heroku]: http://www.heroku.com
+## User scripts
 
+All the functionality of Hubot is found in the `./scripts` folder.
 
-## HTTP Listener
+If you want to add functionality, all you have to do is create a new script in the `./scripts` folder and you are good to go.
+Check the other script to get started on how it works.
 
-Hubot has a HTTP listener which listens on the port specified by the `PORT`
-environment variable.
+If you have finished your script and want to add it to our Hubot, please make a pull request to the repo of [BasBenIk][basrepo].
+He will pull it after a check and push it to Heroku.
 
-You can specify routes to listen on in your scripts by using the `router`
-property on `robot`.
+Please do make sure you test your script locally in the terminal.
 
-```coffeescript
-module.exports = (robot) ->
-  robot.router.get "/hubot/version", (req, res) ->
-    res.end robot.version
-```
+## Testing locally (mac os x lion)
 
-There are functions for GET, POST, PUT and DELETE, which all take a route and
-callback function that accepts a request and a response.
+You need to have Node.js, npm and redis installed.
 
+How to install [Node.js][node] (npm comes with node.js).
+How to install [Redis][redis].
 
-## hubot-scripts
+Next, go to the root of your hubot repo and type:
+`bin/hubot`
 
-Neem een kijkje bij de scripts in de `./scripts` folder voor voorbeelden.
-
-Uiteindelijk zullen er natuurlijk functionaliteiten komen die iedereen wilt hebben.
-Voeg nieuwe scripts toe die je gaaf lijken of schrijf natuurlijk je eigen script!
-Maak vervolgens een pull request zodat ik hem uiteindelijk kan toevoegen aan de werkende bot.
-
-Om uiteindelijk een script helemaal toe voegen nadat je hem in de script folder hebt gezet.
-
-To enable scripts from the hubot-scripts package, add the script name with
-extension as a double quoted string to the hubot-scripts.json file in this
-repo.
-
-
-[hubot-scripts]: https://github.com/github/hubot-scripts
-
-
+Hubot should now be running in the terminal.
