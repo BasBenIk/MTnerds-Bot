@@ -3,7 +3,7 @@
 #
 # Commands:
 #   hubot wanneer moeten we terug naar school? - get the first upcoming date
-#   hubot wat zijn de terugkomdagen? - get the first upcoming date
+#   hubot wat zijn de terugkomdagen? - all upcomming dates
 #
 # Author:
 # 	Christian Vermeulen
