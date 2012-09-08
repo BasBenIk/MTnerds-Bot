@@ -10,7 +10,7 @@
 # 		info@christianvermeulen.net
 
 days = [
-  {date: "09/20/2012", text: "Donderdag 20 September"},
+  {date: "08/20/2012", text: "Donderdag 20 September"},
   {date: "10/11/2012", text: "Donderdag 11 Oktober"},
   {date: "11/15/2012", text: "Donderdag 15 November"},
   {date: "12/13/2012", text: "Donderdag 13 December"},
@@ -18,23 +18,53 @@ days = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /wanneer moeten we terug naar school?/i, (msg) ->
+  robot.respond /wanneer moeten we (terug|weer) naar school?/i, (msg) ->
     text = msg.message.text
+
+    # Set the current date
+    now = new Date
+    now = now.getTime()
+
+    # Go through all knows dates
+    for day in days
+      # set the date of spcific day
+      moment = new Date
+      moment = moment.setTime(Date.parse(day.date))
+
+      # Check if the date is ahead of us
+      if moment > now
+        # #reply this date and break from the loop
+        msg.reply day.text
+        break
+
+  robot.respond /(wat|wanneer) zijn de terugkomdagen?/i, (msg) ->
+    text = msg.message.text
+
+    # Prepare reply string
+    reply = "De terugkomdagen zijn: "
+
+    # how many dates do we have
+    total   = days.length - 1
+
+    # Set the current date
     now = new Date
     now = now.getTime()
 
     for day in days
+      # get the index of current day
+      current = days.indexOf(day)
+
+      # set this day's moment
       moment = new Date
       moment = moment.setTime(Date.parse(day.date))
+
       if moment > now
-        msg.send day.text
-        break
+        # Choose how to append the day to the string
+        if current isnt total
+          reply = reply+day.text+", "
+        else
+          cut = reply.length - 2
+          reply = reply.substr(0,cut)
+          reply = reply+" en "+day.text
 
-  robot.respond /wat zijn de terugkomdagen?/i, (msg) ->
-    text = msg.message.text
-
-    reply = ""
-    for day in days
-      reply = reply+day.text+"\n"
-
-    msg.send reply
+    msg.reply reply
