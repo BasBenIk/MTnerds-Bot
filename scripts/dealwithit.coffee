@@ -28,4 +28,4 @@ deal = [
 
 module.exports = (robot) ->
   robot.hear /(deal with it|dwi)/i, (msg)->
-    msg.send msg.random deal
+    msg.send "Yeah! Deal with it!: "+msg.random deal
