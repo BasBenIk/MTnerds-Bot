@@ -10,7 +10,7 @@
 # 		info@christianvermeulen.net
 
 days = [
-  {date: "08/20/2012", text: "Donderdag 20 September"},
+  {date: "09/20/2012", text: "Donderdag 20 September"},
   {date: "10/11/2012", text: "Donderdag 11 Oktober"},
   {date: "11/15/2012", text: "Donderdag 15 November"},
   {date: "12/13/2012", text: "Donderdag 13 December"},
