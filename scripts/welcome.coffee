@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot welcome <message>
+#   hubot welcome <message> - Change the welcome message
 #
 # Author:
 #   Christian Vermeulen

@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot ambush <user name>: <message>
+#   hubot ambush <user name>: <message> -Leave a message for someone.
 #
 # Author:
 #   jmoses

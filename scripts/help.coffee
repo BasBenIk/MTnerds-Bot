@@ -6,7 +6,7 @@
 #   hubot help <query> - Displays all help commands that match <query>.
 #
 # URLS:
-#   /hubot/help
+#   /commands
 #
 # Notes:
 #   These commands are grabbed from comment blocks at the top of each file.
@@ -52,20 +52,9 @@ helpContents = (name, commands) ->
 
 module.exports = (robot) ->
   robot.respond /help\s*(.*)?$/i, (msg) ->
-    cmds = robot.helpCommands()
+    msg.reply "You can see my commands here: "+process.env.HEROKU_URL+"/commands"
 
-    if msg.match[1]
-      cmds = cmds.filter (cmd) ->
-        cmd.match new RegExp(msg.match[1], 'i')
-
-    emit = cmds.join "\n"
-
-    unless robot.name.toLowerCase() is 'hubot'
-      emit = emit.replace /hubot/ig, robot.name
-
-    msg.send emit
-
-  robot.router.get '/hubot/help', (req, res) ->
+  robot.router.get '/commands', (req, res) ->
     cmds = robot.helpCommands()
     emit = "<p>#{cmds.join '</p><p>'}</p>"
 
