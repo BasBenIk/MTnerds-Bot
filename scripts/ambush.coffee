@@ -33,7 +33,7 @@ module.exports = (robot) ->
       msg.send "Too many users like that"
     else
       msg.send "#{msg.match[1]}? Never heard of 'em"
-  
+
   robot.hear /./i, (msg) ->
     if (ambushes = robot.brain.data.ambushes[msg.message.user.name])
       msg.send "Hey, " + msg.message.user.name + ", while you were out:"
