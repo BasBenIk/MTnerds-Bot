@@ -8,7 +8,8 @@
 #   None
 #
 # Commands:
-#   haters - Returns a random haters gonna hate url
+#   hubot haters - Returns a random haters gonna hate url
+#   hate || haat - Returns a random haters gonna hate url
 #
 # Author:
 #   atmos
