@@ -8,8 +8,7 @@
 #   None
 #
 # Commands:
-#   deal with it - display a "deal with it" gif
-#   dwi - display a "deal with it" gif
+#   deal with it || dwi - display a "deal with it" gif
 #
 # Author:
 #   brianstanwyck
