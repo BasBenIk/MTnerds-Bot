@@ -1,8 +1,8 @@
 # Description:
 #   Responds to dubstep and creates some dubstep noises at random
 #
-# Triggers:
-#   dubstep
+# Commands:
+#   dubstep - Will generate a dubstep response
 #
 # Author:
 #   Tiemen Waterreus
