@@ -57,3 +57,7 @@ module.exports = (robot) ->
 	robot.respond /morning$/i, (msg) ->
 		now = new Date
 		msg.reply "vandaag is "+now.getDate()+" en je laatste groet was "+robot.brain.data.mornings[msg.message.user.name].getDate()
+
+	robot.respond /morning clear$/i, (msg) ->
+		robot.brain.data.mornings = {}
+		msg.reply "I have cleared the memory!"
