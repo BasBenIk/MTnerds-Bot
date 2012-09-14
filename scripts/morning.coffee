@@ -53,3 +53,8 @@ module.exports = (robot) ->
 			last = new Date now.getFullYear(), now.getMonth(), now.getDate(), 7,0,0
 			robot.brain.data.mornings[msg.message.user.name] = last
 			goodMorning msg
+
+	robot.respond /morning$/i, (msg) ->
+		now = new Date
+		msg.reply "vandaag is "+now.getDate()
+		msg.reply "Laatste groet was "+robot.brain.data.mornings[msg.message.user.name].getDate()
