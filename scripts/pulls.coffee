@@ -12,9 +12,10 @@
 checkPulls = (msg, data, github) ->
 	github.get "https://api.github.com/repos/BasBenIk/MTnerds-Bot/pulls", (pulls) ->
 		for pull in pulls
-			github.get pull._links.issue.href, (issue) ->
-				msg.reply "You have a pull request (#"+pull.number+") by "+pull.user.login+". "+pull.user.login+" says: "+issue.title+" => "+pull.html_url
-			data.push pull.number
+			if pull.number not in data
+				github.get pull._links.issue.href, (issue) ->
+					msg.reply "You have a pull request (#"+pull.number+") by "+pull.user.login+". "+pull.user.login+" says: "+issue.title+" => "+pull.html_url
+				data.push pull.number
 
 module.exports = (robot) ->
 	github = require('githubot')(robot)
