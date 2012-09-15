@@ -46,8 +46,8 @@ module.exports = (robot) ->
 			#we know the user, so check if we need to say good morning
 			if morning.getDate() < now.getDate()
 				# say goodmorning and add a day for tommorow
+				morning.setDate(morning.getDate()+1)
 				goodMorning msg
-				morning = morning.setDate(morning.getDate()+1)
 		else
 			# We don't know the person so we add it to the list and say good morning
 			last = new Date now.getFullYear(), now.getMonth(), now.getDate(), 7,0,0
@@ -56,7 +56,7 @@ module.exports = (robot) ->
 
 	robot.respond /morning$/i, (msg) ->
 		now = new Date
-		msg.reply "vandaag is "+now.getDate()+" en je laatste groet was "+robot.brain.data.mornings[msg.message.user.name].getDate()
+		msg.reply "vandaag is het "+now.getDate()+" en je laatste groet was "+robot.brain.data.mornings[msg.message.user.name].getDate()
 
 	robot.respond /morning clear$/i, (msg) ->
 		robot.brain.data.mornings = {}
