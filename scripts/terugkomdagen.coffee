@@ -68,3 +68,6 @@ module.exports = (robot) ->
           reply = reply+" en "+day.text
 
     msg.reply reply
+
+  robot.respond /in welk gebouw zitten we straks?$/i, (msg) ->
+    msg.reply "WN.0.000 is 99 - H.0.000 dan is het 107."
