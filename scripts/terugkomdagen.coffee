@@ -4,6 +4,7 @@
 # Commands:
 #   hubot wanneer moeten we terug naar school? - get the first upcoming date
 #   hubot wat zijn de terugkomdagen? - all upcomming dates
+#   hubot in welk gebouw zitten we straks? - See in which building you need to be
 #
 # Author:
 # 	Christian Vermeulen
