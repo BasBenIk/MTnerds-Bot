@@ -38,3 +38,6 @@ Next, go to the root of your hubot repo and type:
 `bin/hubot`
 
 Hubot should now be running in the terminal.
+
+
+LADIDIAAAAA
